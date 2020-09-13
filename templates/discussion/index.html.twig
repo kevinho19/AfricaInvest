@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formDiscussion 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Envoyer un message</h1>
+
+    {{ form_start(formDiscussion) }}
+
+    {{ form_widget(formDiscussion) }}
+
+    <button type="submit" class="btn btn-outline-primary">Envoyer</button>
+
+    {{ form_end(formDiscussion) }}
+
+{% endblock %}

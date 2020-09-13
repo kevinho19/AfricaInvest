@@ -15,8 +15,8 @@ class ProjectType extends AbstractType
             ->add('name')
             ->add('type')
             ->add('country')
-            ->add('createdAt')
             ->add('endedAt')
+            ->add('amount')
         ;
     }
 

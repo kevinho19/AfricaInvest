@@ -38,9 +38,14 @@ class Project
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime")
      */
     private $endedAt;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $amount;
 
     public function getId(): ?int
     {
@@ -103,6 +108,18 @@ class Project
     public function setEndedAt(?\DateTimeInterface $endedAt): self
     {
         $this->endedAt = $endedAt;
+
+        return $this;
+    }
+
+    public function getAmount(): ?int
+    {
+        return $this->amount;
+    }
+
+    public function setAmount(int $amount): self
+    {
+        $this->amount = $amount;
 
         return $this;
     }

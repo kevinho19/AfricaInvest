@@ -5,30 +5,31 @@
 {% block body %}
     <h1>Project index</h1>
 
+    
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
-                <th>Type</th>
+                <th>Type of project</th>
                 <th>Country</th>
-                <th>CreatedAt</th>
-                <th>EndedAt</th>
-                <th>actions</th>
+                <th>Created At</th>
+                <th>Ended At</th>
+                <th>Amount</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for project in projects %}
             <tr>
-                <td>{{ project.id }}</td>
                 <td>{{ project.name }}</td>
                 <td>{{ project.type }}</td>
                 <td>{{ project.country }}</td>
-                <td>{{ project.createdAt ? project.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ project.endedAt ? project.endedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ project.createdAt ? project.createdAt|date('d/m/Y') : '' }}</td>
+                <td>{{ project.endedAt ? project.endedAt|date('d/m/Y') : '' }}</td>
+                <td>{{ project.amount }} €</td>
                 <td>
-                    <a href="{{ path('project_show', {'id': project.id}) }}">show</a>
-                    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
+                    <a type="button" class="btn btn-outline-primary" href="{{ path('project_show', {'id': project.id}) }}">show</a>
+                    <a type="button" class="btn btn-outline-primary" href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +40,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('project_new') }}">Create new</a>
+
+    <a type="button" class="btn btn-outline-primary" href="{{ path('project_new') }}">Create new</a>
 {% endblock %}
