@@ -1,8 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Project index{% endblock %}
+{% block title %}Project{% endblock %}
 
 {% block body %}
+<div class="container jumbotron">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <style>
+        #map{
+            height: 500px;
+            width: 700px;
+        }
+    </style>
     <h1>Project index</h1>
 
     
@@ -42,4 +50,34 @@
 
 
     <a type="button" class="btn btn-outline-primary" href="{{ path('project_new') }}">Create new</a>
+
+    <div id="map"></div>
+</div>
+{% endblock %} 
+{% block javascripts %}
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <script type="text/javascript">
+        var lat = -4.3217055;
+        var lon = 15.3125974;
+        var macarte = null;
+        // Fonction d'initialisation de la carte
+        function initMap() {
+            // Créer l'objet "macarte" et l'insérer dans l'élément HTML qui a l'ID "map"
+            macarte = L.map('map').setView([lat, lon], 11);
+            // On récupère les cartes (tiles) sur openstreetmap.fr
+            L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                // Il est toujours bien de laisser le lien vers la source des données
+                attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(macarte);
+        }
+        window.onload = function(){
+        // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+        initMap(); 
+        // marqueur
+        var marker = L.marker([lat, lon]).addTo(macarte);
+            };
+    </script>
 {% endblock %}

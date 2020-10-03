@@ -1,10 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
-{% endblock %}
+{% block title %} Golden Book {% endblock %}
 
 {% block body %}
-	<div class="container">
 		<div class="row">
 			{% for post in posts %}
 				<div class="col-md-4">
@@ -16,13 +14,10 @@
 							<p>{{post.country}}
 								-
 								{{post.createdAt |date("d/m/Y")}}</p>
-							<a href="/posts/{{post.id}}" class="btn btn-primary">Visualize</a>
+							<a href="/posts/{{post.id}}" class="btn btn-primary">View</a>
 						</div>
 					</div>
 				</div>
 			{% endfor %}
 		</div>
-	</div>
-
-
 {% endblock %}
