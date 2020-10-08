@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Invest {% endblock %}
+
+{% block body %}
+<div>
+	<h4>
+        Here are the current projects. 
+        You can participate by investing or making a donation on the project of your choice. 
+        Thank you in advance for your commitment.
+    </h4>
+</div>
+		<div class="row">
+			{% for project in invests %}
+				<div class="col-md-4">
+					<div class="card">
+						<img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{project.name}}</h5>
+							<p class="card-text">{{project.type}}</p>
+							<p>{{project.country}}
+								-
+                                {{project.createdAt |date("d/m/Y")}}
+                                -
+                                {{project.endedAt |date("d/m/Y")}}
+                            </p>
+							<a href="/discussion" class="btn btn-primary">Invest</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+{% endblock %}

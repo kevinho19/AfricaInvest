@@ -1,20 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
+{% block title %}Africa Invest{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper { margin: 0 auto; max-width: 800px; min-height: 300px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .main_image { background: no-repeat center url('./afrique.jpg'); min-height: 500px;text-align: center; height: 500px;}
+    .main_image h1 { color: bisque; margin: 0 auto; padding-top: 250px; }
+    .content { display: flex; justify-content: space-around; background-color: rgb(233, 233, 233); }
 </style>
-
+<div class="main_image">
+    <h1>Welcome to Africa Invest</h1>
+</div>
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Could crowdfunding get you started? Take the plunge</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/AfricaInvest/src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/AfricaInvest/templates/index/index.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>
-    </ul>
+    Could crowdfunding get you started? So, it has been a busy time, but better to be busy than bored right? 
+    Much time has been spent head down, diligently working, but as with all things there are seasons. 
+    Now it is time to raise our heads and let you know what has occupied us. (more…)
+</div>
+{% endblock %}
+{% block footer %}
+<div class="container">
+    <footer>
+        <div class="content">
+            <div class="item">
+                <h3>ABOUT</h3> 
+                <li>
+                    <a href="">About Us</a>
+                </li>
+                <li>
+                    <a href="">Stats</a>
+                </li>
+                <li>
+                    <a href="">Contact Us</a>
+                </li>
+            </div>
+            <div class="item">
+                <h3>SUPPORT</h3>
+                <li>
+                    <a href="">Help Center</a>
+                </li>
+                <li>
+                    <a href="">Campaign</a>
+                </li>
+
+            </div>
+            <div class="item">
+                <h3>RULES</h3>
+                <li>
+                    <a href="">Prohibited Items</a>
+                </li>
+                <li>
+                    <a href="">Our Rules</a>
+                </li>
+            </div>
+        </div>
+    </footer>
 </div>
 {% endblock %}
